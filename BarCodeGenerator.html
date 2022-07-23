@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./assets/main.css">
+
+    <title>Barcode Generator</title>
+
+</head>
+
+<body>
+
+    <div class="main">
+
+        <p>ITF Barcode</p>
+        <div class="textInput">
+            <label for="mode">Choose Mode: &nbsp</label>
+            <select name="mode" id="mode" onchange="changeMode()">
+              <option value="single">Single</option>
+              <option value="multiple">Multiple</option>
+            </select>
+        </div>
+        <div class="textInput" id='singleModeTextInput' style="display: flex;"  >
+            <label for="singleBarCode">Single Code: &nbsp</label>
+            <input id="singleBarCode" type="number" class="input" placeholder="Enter Value" min="1000" max ="9999" step="1">
+        </div>
+        <div class="textInput" id='multipleModeBegin' style="display: none;" >
+            <label for="multipleBarCodeBegin">Start Code: &nbsp</label>
+            <input id="multipleBarCodeBegin" type="number" class="input" placeholder="Enter Value" min="1000" max ="9999" step="1">
+        </div>
+        <div class="textInput" id='multipleModeEnd' style="display: none;">
+            <label for="multipleBarCodeEnd">End Code: &nbsp</label>
+            <input id="multipleBarCodeEnd" type="number" class="input" placeholder="Enter Value" min="1000" max ="9999" step="1">
+        </div>
+        <div class="checkBoxInput" >
+            <input type="checkbox" id="displayNumber" style="width:20px;height:20px;">
+            <label for="displayNumber"> &nbsp Include code number?</label>
+        </div>
+        <img id="barcode" />
+        <button class="submit" onclick="barcodeGen()">Generate</button>
+        <button class="submit" id="downloadImg" onclick="convertToPng()" >Download Image</button>
+    </div>
+
+
+    <script src="./assets/barcode.js"></script>
+    <script src="./assets/html2canvas.min.js"></script> 
+    <script src="./assets/main.js"></script>    
+    <script src="./assets/FileSaver.js"></script>
+    <script src="./assets/jszip.min.js"></script>
+
+</body>
+
+</html>
